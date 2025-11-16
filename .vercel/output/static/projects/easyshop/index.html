@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="EasyShop is a full-featured e-commerce solution focused on reliability and scalability. It includes product browsing, cart and checkout, order tracking, and admin management. Built with containerized services and CI/CD to streamline development and deployment."><link rel="icon" type="image/png" href="/favicons/light-mode/favicon-96x96.png" sizes="96x96" media="(prefers-color-scheme: light)"><link rel="icon" type="image/png" href="/favicons/dark-mode/favicon-96x96.png" sizes="96x96" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/svg+xml" href="/favicons/light-mode/favicon.svg" media="(prefers-color-scheme: light)"><link rel="icon" type="image/svg+xml" href="/favicons/dark-mode/favicon.svg" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" href="/favicons/light-mode/favicon.ico" media="(prefers-color-scheme: light)"><link rel="shortcut icon" href="/favicons/dark-mode/favicon.ico" media="(prefers-color-scheme: dark)"><link rel="apple-touch-icon" sizes="180x180" href="/favicons/light-mode/apple-touch-icon.png" media="(prefers-color-scheme: light)"><link rel="apple-touch-icon" sizes="180x180" href="/favicons/dark-mode/apple-touch-icon.png" media="(prefers-color-scheme: dark)"><link rel="manifest" href="/favicons/light-mode/site.webmanifest" media="(prefers-color-scheme: light)"><link rel="manifest" href="/favicons/dark-mode/site.webmanifest" media="(prefers-color-scheme: dark)"><script>
+      const getInitialTheme = () => {
+        if (
+          typeof localStorage !== 'undefined' &&
+          localStorage.getItem('theme')
+        ) {
+          return localStorage.getItem('theme');
+        }
+        if (
+          window.matchMedia &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches
+        ) {
+          return 'dark';
+        }
+        return 'light';
+      };
+      const theme = getInitialTheme();
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+      // Ensure localStorage is consistent if theme was derived from prefers-color-scheme
+      // or if localStorage was empty.
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('theme', theme);
+      }
+    </script><title>EasyShop | Shaheen | DevOps &amp; Cloud Engineer</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js" defer></script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CtSceO8m.js"></script><link rel="stylesheet" href="/_astro/_slug_.Df5Gt-gu.css"></head> <body class="h-[100dvh] bg-background font-sans antialiased flex flex-col">  <header class="hidden md:block"> <!-- passer aussi navItems mais sans le premier element dont le href === '/' --> <header class="py-6 border-b sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"> <nav class="mx-auto px-4 max-w-screen-2xl flex justify-between items-center"> <a href="/"> <span class="text-2xl font-bold text-primary"> Your Logo </span> </a> <div class="flex items-center gap-x-5"> <a href="/projects" class="font-medium text-muted-foreground transition-colors hover:text-foreground relative group"> Projects <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span> </a><a href="/blog" class="font-medium text-muted-foreground transition-colors hover:text-foreground relative group"> Blog <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span> </a><a href="/about" class="font-medium text-muted-foreground transition-colors hover:text-foreground relative group"> About <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span> </a> </div> <div class="flex items-center gap-x-3"> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9 transition-all" id="themeToggle-d06abb56"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-[1.5rem] w-[1.3rem] dark:hidden" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon hidden h-5 w-5 dark:block" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg> <span class="sr-only">Toggle theme</span> </button> <script>(function(){const buttonId = "themeToggle-d06abb56";
+
+  const applyThemeFromLocalStorage = () => {
+    const theme =
+      (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) ||
+      'light';
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
+  const handleToggleClick = () => {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+  };
+
+  const setupThemeToggleButton = () => {
+    const toggleButton = document.getElementById(buttonId);
+    if (toggleButton) {
+      toggleButton.removeEventListener('click', handleToggleClick); // Prevent duplicate listeners
+      toggleButton.addEventListener('click', handleToggleClick);
+    }
+  };
+
+  // For View Transitions: Apply theme *immediately* after new DOM is swapped.
+  document.addEventListener('astro:after-swap', applyThemeFromLocalStorage);
+
+  // For initial load and re-attaching button listener after page transitions:
+  if (document.readyState === 'loading') {
+    // Ensures button listener is attached after initial DOM is ready.
+    // Theme is already applied by the inline script in <head> of BaseLayout.astro for initial paint.
+    document.addEventListener('DOMContentLoaded', setupThemeToggleButton);
+  } else {
+    setupThemeToggleButton(); // If script loads after DOMContentLoaded.
+  }
+  // astro:page-load is for scripts that need to run after the page is fully loaded and painted.
+  // Good for re-attaching listeners to elements that might have been re-rendered.
+  document.addEventListener('astro:page-load', setupThemeToggleButton);
+
+  // MutationObserver to sync localStorage if the 'dark' class changes by other means (e.g., dev tools).
+  if (
+    typeof localStorage !== 'undefined' &&
+    !document.documentElement.hasAttribute('data-theme-observer-toggle')
+  ) {
+    const observer = new MutationObserver(() => {
+      const isDarkNow = document.documentElement.classList.contains('dark');
+      const storedTheme = localStorage.getItem('theme');
+      if (
+        (isDarkNow && storedTheme !== 'dark') ||
+        (!isDarkNow && storedTheme !== 'light')
+      ) {
+        localStorage.setItem('theme', isDarkNow ? 'dark' : 'light');
+      }
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    document.documentElement.setAttribute('data-theme-observer-toggle', 'true');
+  }
+})();</script> </div> </nav> </header> </header> <main class="container mx-auto px-4 py-8 flex-1 max-w-screen-2xl pb-20 md:pb-8">  <div class="py-12 md:py-16"> <article class="prose lg:prose-xl max-w-none dark:prose-invert"> <a href="/projects" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3 mb-6 no-underline">
+&larr; Back to Projects </a> <div class="mb-8 space-y-4"> <h1 class="text-2xl font-bold tracking-tight sm:text-3xl"> EasyShop </h1>   </div> <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600 dark:text-gray-400"> <!-- Category --> <div class="flex items-center gap-2"> <span class="text-foreground"> Category: </span> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent bg-secondary text-secondary-foreground [a&amp;]:hover:bg-secondary/90">E-commerce Platform</span> </div> <!-- Date --> <div class="flex items-center gap-2"> <span class="text-foreground"> Date: </span> <span data-slot="badge" class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent bg-secondary text-secondary-foreground [a&amp;]:hover:bg-secondary/90">January 2025</span> </div> </div> <!-- Image --> <div class="mb-8 aspect-[16/9] overflow-hidden rounded-lg shadow-lg"> <img src="/_astro/easyshop.B7oyl2wN_1sm64N.webp" srcset="/_astro/easyshop.B7oyl2wN_I8STh.webp 400w, /_astro/easyshop.B7oyl2wN_Z9kKim.webp 800w, /_astro/easyshop.B7oyl2wN_Z1EyYC0.webp 1200w" alt="Screenshot of the EasyShop project" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" width="1226" height="622" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"> </div> <!-- Detailed Description --> <section class="mb-8"> <h2>About this project</h2> <p>EasyShop is a full-featured e-commerce solution focused on reliability and scalability. It includes product browsing, cart and checkout, order tracking, and admin management. Built with containerized services and CI/CD to streamline development and deployment.</p> </section> <section class="mb-8"> <h2>Key Features</h2> <ul class="pl-5 list-disc"> <li> <strong>Responsive Design:</strong> Optimized shopping experience across mobile, tablet, and desktop. </li><li> <strong>Extensible Architecture:</strong> Modular design with clear boundaries, ready for CMS or headless integrations. </li> </ul> </section>  <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var a=(s,i,o)=>{let r=async()=>{await(await s())()},t=typeof i.value=="object"?i.value:void 0,c={rootMargin:t==null?void 0:t.rootMargin},n=new IntersectionObserver(e=>{for(let l of e)if(l.isIntersecting){n.disconnect(),r();break}},c);for(let e of o.children)n.observe(e)};(self.Astro||(self.Astro={})).visible=a;window.dispatchEvent(new Event("astro:visible"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z20rSGX" prefix="r12" component-url="/_astro/ProjectGallery.BZ_vJOuR.js" component-export="default" renderer-url="/_astro/client.DHYUtGoQ.js" props="{&quot;images&quot;:[1,[[0,{&quot;src&quot;:[0,&quot;/_astro/easyshop.B7oyl2wN.png&quot;],&quot;alt&quot;:[0,&quot;Alt text for screenshot1 missing&quot;],&quot;caption&quot;:[0,&quot;&quot;],&quot;id&quot;:[0,&quot;screenshot1&quot;]}]]]}" ssr client="visible" opts="{&quot;name&quot;:&quot;ProjectGallery&quot;,&quot;value&quot;:true}" await-children><link rel="preload" as="image" href="/_astro/easyshop.B7oyl2wN.png"/><div class="relative w-full md:ml-12" role="region" aria-roledescription="carousel" data-slot="carousel"><div class="overflow-hidden" data-slot="carousel-content"><div class="flex -ml-1 not-prose"><div role="group" aria-roledescription="slide" data-slot="carousel-item" class="min-w-0 shrink-0 grow-0 basis-full pl-1 relative"><div><div data-slot="card" class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm"><div data-slot="card-content" class="px-6"><div style="position:relative;width:100%;padding-bottom:56.25%" data-radix-aspect-ratio-wrapper=""><div data-slot="aspect-ratio" class="h-full w-full" style="position:absolute;top:0;right:0;bottom:0;left:0"><img src="/_astro/easyshop.B7oyl2wN.png" alt="Alt text for screenshot1 missing" class="h-full w-full rounded-md object-cover" width="600" height="600"/></div></div></div></div></div></div></div></div><button data-slot="carousel-previous" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-8 rounded-full md:left-[-3rem] absolute left-4 top-1/2 -translate-y-1/2" disabled=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg><span class="sr-only">Previous slide</span></button><button data-slot="carousel-next" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-8 rounded-full md:right-[-3rem] absolute right-4 top-1/2 -translate-y-1/2" disabled=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg><span class="sr-only">Next slide</span></button></div><!--astro:end--></astro-island> <div class="grid grid-cols-1 md:gap-8 md:grid-cols-2 md:mb-8 mb-4"> <section> <h2 class="mt-0"> Challenges </h2> <p>Zero-downtime deployments for checkout flow, secrets management across environments, and scaling during promotional spikes.</p> </section> <section> <h2 class="mt-0"> Learnings </h2> <p>Applied IaC best practices, refined CI/CD with automated tests and rollbacks, and improved monitoring/alerting for user-impacting issues.</p> </section> </div>  <div class="mt-8 flex flex-wrap gap-4">   </div> </article> </div>  </main> <div class="hidden md:block"> <footer class="py-6 mt-auto text-center text-sm text-muted-foreground"> <div class="container mx-auto px-4">
+&copy; 2025 Shaheen | DevOps &amp; Cloud Engineer. All rights reserved. </div> </footer> </div> <nav class="md:hidden fixed bottom-0 left-0 z-50 w-full bg-background p-2 border-t border-border" role="navigation" aria-label="Main navigation"> <div class="flex h-16 max-w-screen-sm mx-auto justify-between items-center"> <a href="/" aria-label="Home" class="relative flex flex-col items-center justify-center transition-colors duration-200 w-full text-muted-foreground hover:text-foreground" style="min-width: 48px; min-height: 48px;"> <span class="flex items-center justify-center rounded-full transition bg-transparent" style="width: 36px; height: 36px;"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg> </span> <span class="text-[10px] truncate max-w-[90%] text-center leading-tight"> Home </span>  </a><a href="/projects" aria-label="Projects" aria-current="page" class="relative flex flex-col items-center justify-center transition-colors duration-200 w-full text-primary font-semibold" style="min-width: 48px; min-height: 48px;"> <span class="flex items-center justify-center rounded-full transition bg-primary/10" style="width: 36px; height: 36px;"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg> </span> <span class="text-[10px] truncate max-w-[90%] text-center leading-tight"> Projects </span> <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-1 rounded-full bg-primary"></span> </a><a href="/blog" aria-label="Blog" class="relative flex flex-col items-center justify-center transition-colors duration-200 w-full text-muted-foreground hover:text-foreground" style="min-width: 48px; min-height: 48px;"> <span class="flex items-center justify-center rounded-full transition bg-transparent" style="width: 36px; height: 36px;"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg> </span> <span class="text-[10px] truncate max-w-[90%] text-center leading-tight"> Blog </span>  </a><a href="/about" aria-label="About" class="relative flex flex-col items-center justify-center transition-colors duration-200 w-full text-muted-foreground hover:text-foreground" style="min-width: 48px; min-height: 48px;"> <span class="flex items-center justify-center rounded-full transition bg-transparent" style="width: 36px; height: 36px;"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg> </span> <span class="text-[10px] truncate max-w-[90%] text-center leading-tight"> About </span>  </a>  <div class="flex items-center gap-x-3"> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9 transition-all" id="themeToggle-617a46ba"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-[1.5rem] w-[1.3rem] dark:hidden" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon hidden h-5 w-5 dark:block" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg> <span class="sr-only">Toggle theme</span> </button> <script>(function(){const buttonId = "themeToggle-617a46ba";
+
+  const applyThemeFromLocalStorage = () => {
+    const theme =
+      (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) ||
+      'light';
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
+  const handleToggleClick = () => {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+  };
+
+  const setupThemeToggleButton = () => {
+    const toggleButton = document.getElementById(buttonId);
+    if (toggleButton) {
+      toggleButton.removeEventListener('click', handleToggleClick); // Prevent duplicate listeners
+      toggleButton.addEventListener('click', handleToggleClick);
+    }
+  };
+
+  // For View Transitions: Apply theme *immediately* after new DOM is swapped.
+  document.addEventListener('astro:after-swap', applyThemeFromLocalStorage);
+
+  // For initial load and re-attaching button listener after page transitions:
+  if (document.readyState === 'loading') {
+    // Ensures button listener is attached after initial DOM is ready.
+    // Theme is already applied by the inline script in <head> of BaseLayout.astro for initial paint.
+    document.addEventListener('DOMContentLoaded', setupThemeToggleButton);
+  } else {
+    setupThemeToggleButton(); // If script loads after DOMContentLoaded.
+  }
+  // astro:page-load is for scripts that need to run after the page is fully loaded and painted.
+  // Good for re-attaching listeners to elements that might have been re-rendered.
+  document.addEventListener('astro:page-load', setupThemeToggleButton);
+
+  // MutationObserver to sync localStorage if the 'dark' class changes by other means (e.g., dev tools).
+  if (
+    typeof localStorage !== 'undefined' &&
+    !document.documentElement.hasAttribute('data-theme-observer-toggle')
+  ) {
+    const observer = new MutationObserver(() => {
+      const isDarkNow = document.documentElement.classList.contains('dark');
+      const storedTheme = localStorage.getItem('theme');
+      if (
+        (isDarkNow && storedTheme !== 'dark') ||
+        (!isDarkNow && storedTheme !== 'light')
+      ) {
+        localStorage.setItem('theme', isDarkNow ? 'dark' : 'light');
+      }
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    document.documentElement.setAttribute('data-theme-observer-toggle', 'true');
+  }
+})();</script> </div> </div> </nav> <script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><astro-island uid="gUdCf" prefix="r1" component-url="/_astro/_astro-entry_sonner.DbbMjnIh.js" component-export="Toaster" renderer-url="/_astro/client.DHYUtGoQ.js" props="{&quot;position&quot;:[0,&quot;bottom-right&quot;],&quot;richColors&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;Toaster&quot;,&quot;value&quot;:true}" await-children><section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text" aria-atomic="false"></section><!--astro:end--></astro-island>  <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+        const initializeAndRunMermaid = () => {
+          if (typeof mermaid !== 'undefined') {
+            const isDarkMode =
+              document.documentElement.classList.contains('dark');
+            const mermaidTheme = isDarkMode ? 'dark' : 'default';
+
+            let themeVars = {
+              fontFamily: '"Inter", sans-serif',
+              fontSize: '15px',
+              // Base variables (light mode defaults)
+              primaryColor: isDarkMode ? '#3B0764' : '#F3EFFF', // Node background
+              primaryTextColor: isDarkMode ? '#F3F4F6' : '#1f2937', // Node text
+              primaryBorderColor: isDarkMode ? '#A78BFA' : '#9333ea', // Node border
+              lineColor: isDarkMode ? '#A78BFA' : '#7E22CE', // Edge lines
+              textColor: isDarkMode ? '#E5E7EB' : '#374151', // General text (like edge labels)
+              edgeLabelBackground: isDarkMode ? '#4B3264' : '#E9D5FF', // Background for edge labels
+              // Specific for sequence diagrams, etc. (can be expanded)
+              actorBkg: isDarkMode ? '#3B0764' : '#F3EFFF',
+              actorBorder: isDarkMode ? '#A78BFA' : '#9333ea',
+              labelBoxBkgColor: isDarkMode ? '#2e104f' : '#f7f2ff', // Background for loop/alt/opt boxes
+              labelTextColor: isDarkMode ? '#E5E7EB' : '#374151',
+              noteBkgColor: isDarkMode ? '#2a0f4a' : '#fbf7ff',
+              noteTextColor: isDarkMode ? '#E5E7EB' : '#374151',
+              clusterBkg: isDarkMode ? '#240a3c' : '#faf5ff',
+              clusterBorder: isDarkMode ? '#7c3aed' : '#a855f7',
+            };
+
+            mermaid.initialize({
+              startOnLoad: false, // We call run() manually
+              theme: mermaidTheme,
+              themeVariables: themeVars,
+            });
+
+            mermaid.run({
+              nodes: document.querySelectorAll('pre.mermaid'), // Correct selector for inline-svg strategy
+            });
+          } else {
+            console.error('Mermaid object not found.');
+          }
+        };
+
+        initializeAndRunMermaid(); // Initial run on page load
+
+        document.addEventListener('astro:after-swap', () => {
+          initializeAndRunMermaid(); // Re-initialize and run after page swaps for SPA-like navigation
+        });
+      });
+    </script> </body> </html>

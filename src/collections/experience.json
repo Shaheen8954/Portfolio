@@ -1,0 +1,19 @@
+{
+  "experience": [
+    {
+      "id": "exp-1",
+      "role": "Senior Full Stack Developer",
+      "company": "Acme Corp",
+      "location": "Remote",
+      "startDate": "2023-05-01",
+      "endDate": null,
+      "summary": "Leading development of the platform...",
+      "highlights": [
+        "Delivered feature X",
+        "Improved performance by 30%"
+      ],
+      "tags": ["React", "Node.js", "AWS"],
+      "logoPath": "/src/assets/placeholder.webp"
+    }
+  ]
+}
