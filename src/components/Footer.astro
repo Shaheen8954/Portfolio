@@ -1,0 +1,45 @@
+---
+import { defaultLanguage, useTranslations } from '@/i18n/ui';
+import Logo from './Logo.astro';
+import { Github, Linkedin } from 'lucide-react';
+
+const lang = defaultLanguage;
+const tFooter = useTranslations(lang, 'footer');
+const tSite = useTranslations(lang, 'site');
+---
+
+<footer class="py-10 md:py-12 mt-auto border-t bg-muted/10">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+    {/* Logo on the left */}
+    <div class="flex items-center">
+      <Logo />
+    </div>
+
+    {/* Copyright text in the center on mobile, right on desktop */}
+    <div class="text-sm text-muted-foreground order-first md:order-none text-center">
+      &copy; {new Date().getFullYear()} {tSite('title')}. {tFooter('rights')}
+    </div>
+
+    {/* Social links on the right */}
+    <div class="flex items-center gap-4">
+      <a 
+        href="https://github.com/shaheen8954" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="text-muted-foreground hover:text-foreground transition-colors"
+        aria-label="GitHub"
+      >
+        <Github className="w-5 h-5" />
+      </a>
+      <a 
+        href="https://linkedin.com/in/iemshaheen" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="text-muted-foreground hover:text-foreground transition-colors"
+        aria-label="LinkedIn"
+      >
+        <Linkedin className="w-5 h-5" />
+      </a>
+    </div>
+  </div>
+</footer>

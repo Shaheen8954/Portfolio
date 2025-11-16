@@ -1,0 +1,47 @@
+{
+  "projects": [
+    {
+      "id": "easyshop",
+      "slug": "easyshop",
+      "imageUrlPath": "/src/assets/easyshop.png",
+      "projectUrl": "",
+      "codeUrl": "https://github.com/Shaheen8954/easyshop-hack",
+      "tags": [],
+      "category": "E-commerce Platform",
+      "date": "2025-01-01",
+      "galleryImages": [
+        { "id": "screenshot1", "srcPath": "/src/assets/easyshop.png" }
+      ],
+      "keyFeatures": [
+        { "id": "responsiveDesign" },
+        { "id": "contentManagement" }
+      ],
+      "technologiesUsed": [
+        { "id": "docker", "name": "Docker" },
+        { "id": "kubernetes", "name": "Kubernetes" },
+        { "id": "terraform", "name": "Terraform" }
+      ]
+    },
+    {
+      "id": "chattingo",
+      "slug": "chattingo",
+      "imageUrlPath": "/src/assets/Chattingo.jpg",
+      "projectUrl": "",
+      "codeUrl": "https://github.com/Shaheen8954/chattingo/tree/feature",
+      "tags": [],
+      "category": "Chat Application",
+      "date": "2025-01-15",
+      "galleryImages": [
+        { "id": "screenshot1", "srcPath": "/src/assets/Chattingo.jpg" }
+      ],
+      "keyFeatures": [
+        { "id": "realtimeMessaging" },
+        { "id": "authentication" }
+      ],
+      "technologiesUsed": [
+        { "id": "docker", "name": "Docker" },
+        { "id": "nodejs", "name": "Node.js" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+---
+import { defaultLanguage, useTranslations, type LanguageCode } from '@/i18n/ui';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import { Github, Linkedin, Mail } from 'lucide-react';
+import profileImage from '../assets/Generated Image November 13, 2025 - 5_16PM.png';
+
+const lang = defaultLanguage as LanguageCode;
+const t = useTranslations(lang, 'aboutPage');
+
+const pageMeta = {
+  title: t('pageTitle'),
+  description: t('description'),
+};
+---
+
+<BaseLayout pageTitle={pageMeta.title} pageDescription={pageMeta.description}>
+  <section class="py-12 md:py-16">
+    <div class="container mx-auto px-4 max-w-2xl text-center">
+      {/* Profile Photo */}
+      <div class="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
+        <Image 
+          src={profileImage} 
+          alt="Shaheen Nayyar"
+          width={192}
+          height={192}
+          class="w-full h-full object-cover"
+          loading="eager"
+          formats={['webp', 'avif']}
+        />
+      </div>
+      
+      {/* Name and Title */}
+      <h1 class="text-3xl font-bold mb-2">Shaheen Nayyar</h1>
+      <p class="text-lg text-muted-foreground mb-12">DevOps Engineer | DevOps Enthusiast</p>
+      
+      {/* About Section */}
+      <div class="mb-12 text-left">
+        <h2 class="text-2xl font-semibold mb-4">About</h2>
+        <p class="text-foreground/80 leading-relaxed">
+          I'm a passionate DevOps Engineer with expertise in cloud infrastructure, automation, and CI/CD pipelines. 
+          I love building scalable and reliable systems that help teams deliver value faster and more efficiently.
+        </p>
+      </div>
+      
+      {/* Social Links - Horizontal */}
+      <div class="flex flex-wrap justify-center gap-4">
+        <a 
+          href="https://linkedin.com/in/iemshaheen" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="flex items-center p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+          title="LinkedIn"
+        >
+          <Linkedin class="w-5 h-5" />
+        </a>
+        
+        <a 
+          href="https://github.com/shaheen8954" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="flex items-center p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+          title="GitHub"
+        >
+          <Github class="w-5 h-5" />
+        </a>
+        
+        <a 
+          href="mailto:nshaheen488@gmail.com" 
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+          title="Email: nshaheen488@gmail.com"
+          onclick="window.location.href='mailto:nshaheen488@gmail.com'; return false;"
+        >
+          <Mail class="w-5 h-5" />
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
