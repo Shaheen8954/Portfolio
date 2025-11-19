@@ -4,7 +4,7 @@
       "id": "Container Orchestration",
       "title": "Container Orchestration",
       "iconName": "Container",
-      "description": "Expertise in containerization and orchestration tools to deploy, scale, and manage containerized applications efficiently. Skilled in creating scalable and resilient container environments using industry best practices.",
+      "description": "Expertise in creating scalable and resilient container environments using industry best practices.",
       "technologies": [
         {
           "id": "docker",
