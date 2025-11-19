@@ -175,39 +175,15 @@ export function getTranslatedProjectBySlug(
 // Skills
 export const skillsList: Array<SkillData> = (skillsJson.skills || []) as Array<SkillData>;
 
-// Function to get skills with translated content
+// Function to get skills - now directly from skills.json
 export function getTranslatedSkills(
-  lang: LanguageCode | undefined
+  _lang: LanguageCode | undefined
 ): Array<TranslatedSkill> {
-  const currentLang = lang ?? defaultLanguage;
-
-  return skillsList.map((skill) => {
-    type SkillIdKey =
-      keyof (typeof ui)[typeof defaultLanguage]['skillsContent'];
-    const currentSkillId = skill.id as SkillIdKey;
-
-    const skillContentSource = ui[currentLang]?.skillsContent?.[currentSkillId]
-      ? ui[currentLang].skillsContent
-      : ui[defaultLanguage].skillsContent;
-
-    const skillTranslations = skillContentSource[currentSkillId];
-
-    if (!skillTranslations) {
-      // Fallback if translation for the skill ID is missing
-      console.warn(
-        `Translation missing for skill ID: ${skill.id} in language: ${lang}. Using default values.`
-      );
-      return {
-        ...skill,
-        title: skill.id, // Fallback title
-        description: 'Description missing for this skill.', // Fallback description
-      };
-    }
-
-    return {
-      ...skill, // This includes id and iconName
-      title: skillTranslations.title,
-      description: skillTranslations.description,
-    };
-  });
+  // Simply return the skills as is, since they already contain all necessary data
+  return skillsList.map(skill => ({
+    ...skill,
+    // Ensure all required fields are present
+    title: skill.title || skill.id, // Use title if available, otherwise fallback to id
+    description: skill.description || `Description for ${skill.id}` // Ensure description exists
+  }));
 }

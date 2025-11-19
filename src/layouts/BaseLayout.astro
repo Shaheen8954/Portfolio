@@ -7,6 +7,7 @@ import BottomAppBar from '@/components/BottomAppBar.astro';
 import { Home, Briefcase, FileText, Info } from 'lucide-react';
 import { ClientRouter } from 'astro:transitions';
 import { Toaster } from 'sonner';
+import ThemeManagerScript from '@/components/ThemeManagerScript.astro';
 
 type Props = {
   pageTitle: string;
@@ -41,6 +42,7 @@ const navItems: Array<NavItem> = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iemshaheen</title>
     <meta
       name="description"
       content={pageDescription || tSite('description')}
@@ -109,30 +111,28 @@ const navItems: Array<NavItem> = [
     />
 
     <script is:inline>
-      const getInitialTheme = () => {
-        if (
-          typeof localStorage !== 'undefined' &&
-          localStorage.getItem('theme')
-        ) {
-          return localStorage.getItem('theme');
+      // Critical: Apply theme BEFORE page paint to prevent FOUC
+      (function() {
+        const getInitialTheme = () => {
+          if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+            return localStorage.getItem('theme');
+          }
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+          }
+          return 'light';
+        };
+        const theme = getInitialTheme();
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
         }
-        if (
-          window.matchMedia &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches
-        ) {
-          return 'dark';
+        // Store theme for consistency - theme-manager will take over after this
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem('theme', theme);
         }
-        return 'light';
-      };
-      const theme = getInitialTheme();
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
-      // Ensure localStorage is consistent if theme was derived from prefers-color-scheme
-      // or if localStorage was empty.
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem('theme', theme);
-      }
+      })();
     </script>
     <title>{pageTitle || tSite('title')}</title>
 
@@ -146,6 +146,7 @@ const navItems: Array<NavItem> = [
     <script
       src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js"
       defer></script>
+    <ThemeManagerScript />
     <ClientRouter />
   </head>
   <body class="h-[100dvh] bg-background font-sans antialiased flex flex-col">

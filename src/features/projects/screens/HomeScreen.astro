@@ -3,7 +3,7 @@ import Heading from '@/components/Heading.astro';
 import SkillCard from '@/components/SkillCard.astro';
 import { buttonVariants } from '@/components/ui/button';
 import type { LanguageCode } from '@/i18n/ui';
-import { Calendar, Dumbbell } from 'lucide-react';
+import { FileText, Mail } from 'lucide-react';
 
 import heroImage from '@/assets/shaheen pic.png';
 import { Image } from 'astro:assets';
@@ -68,23 +68,28 @@ const {
         class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
       >
         <a
-          href="/projects"
+          href="mailto:nshaheen488@gmail.com"
           class={buttonVariants({ variant: 'default', size: 'lg' })}
         >
-          <Dumbbell className="mr-2 size-4" />
+          <Mail className="mr-2 size-4" />
           {heroViewWorkButton}
         </a>
-        <a href="/about" class={buttonVariants({ variant: 'outline', size: 'lg' })}>
-          <Calendar className="mr-2 size-4" />
+        <a 
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class={buttonVariants({ variant: 'outline', size: 'lg' })}
+        >
+          <FileText className="mr-2 size-4" />
           {heroContactButton}
         </a>
       </div>
     </div>
 
-    {/* Hero Image (Placeholder for now) */}
+    {/* Hero Image */}
     <div class="md:text-center">
       <div
-        class="md:w-[520px] w-full bg-muted rounded-lg shadow-xl overflow-hidden"
+        class="md:w-[520px] md:h-[520px] w-full aspect-square bg-muted rounded-full shadow-xl overflow-hidden mx-auto"
       >
         <Image
           src={heroImage}
@@ -93,7 +98,7 @@ const {
           height={520}
           densities={[1, 1.5, 2]}
           quality="high"
-          class="w-full h-auto object-cover"
+          class="w-full h-full object-cover rounded-full"
           style="object-position: center 28%;"
         />
       </div>

@@ -89,25 +89,6 @@ export const ui = {
           'Improved understanding of realtime patterns, containerized dev flows, and CI/CD for quick iterations.',
       },
     },
-    skillsContent: {
-      frontendDevelopment: {
-        title: 'Frontend Development',
-        description:
-          'Building interactive and high-performance user interfaces.',
-      },
-      backendDevelopment: {
-        title: 'Backend Development',
-        description: 'Constructing robust server logic and APIs.',
-      },
-      uiUxDesign: {
-        title: 'UI/UX Design',
-        description: 'Designing intuitive and aesthetic user experiences.',
-      },
-      devOps: {
-        title: 'DevOps',
-        description: 'Automating development and deployment processes.',
-      },
-    },
     site: {
       title: 'Shaheen | DevOps & Cloud Engineer',
       description:
