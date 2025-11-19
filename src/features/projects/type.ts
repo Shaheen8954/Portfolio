@@ -78,15 +78,12 @@ export type Technology = {
 };
 
 export type SkillData = {
-  id: string; // Unique identifier for the skill, used for i18n keys
+  id: string; // Unique identifier for the skill
+  title: string; // Display name for the skill
+  description: string; // Description of the skill
   iconName: string; // Name of the Lucide icon
   technologies: Array<Technology>;
 };
 
-// Define the type for a skill once its content is translated
-export type TranslatedSkill = SkillData & {
-  title: string;
-  description: string;
-  // iconName is already part of SkillData
-  // technologies is already part of SkillData
-};
+// For backward compatibility, we'll keep TranslatedSkill but make it an alias to SkillData
+export type TranslatedSkill = SkillData;

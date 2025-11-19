@@ -1,37 +1,203 @@
 {
   "skills": [
     {
-      "id": "frontendDevelopment",
-      "iconName": "MonitorSmartphone",
+      "id": "Container Orchestration",
+      "title": "Container Orchestration",
+      "iconName": "Container",
+      "description": "Expertise in containerization and orchestration tools to deploy, scale, and manage containerized applications efficiently. Skilled in creating scalable and resilient container environments using industry best practices.",
       "technologies": [
-        { "id": "html", "name": "HTML" },
-        { "id": "css", "name": "CSS" },
-        { "id": "javascript", "name": "JavaScript" },
-        { "id": "typescript", "name": "TypeScript" }
+        {
+          "id": "docker",
+          "name": "Docker"
+        },
+        {
+          "id": "kubernetes",
+          "name": "Kubernetes"
+        },
+        {
+          "id": "helm",
+          "name": "Helm"
+        },
+        {
+          "id": "argocd",
+          "name": "ArgoCD"
+        },
+        {
+          "id": "docker-compose",
+          "name": "Docker Compose"
+        }
       ]
     },
     {
-      "id": "backendDevelopment",
-      "iconName": "ServerCog",
+      "id": "Cloud Infrastructure",
+      "title": "Cloud Infrastructure",
+      "iconName": "Cloud",
+      "description": "Proficient in designing, implementing, and managing cloud infrastructure on AWS. Experienced in setting up secure, scalable, and highly available cloud environments following best practices for cloud architecture.",
       "technologies": [
-        { "id": "nodejs", "name": "Node.js" },
-        { "id": "restapi", "name": "REST APIs" }
+        {
+          "id": "aws",
+          "name": "AWS"
+        },
+        {
+          "id": "ec2",
+          "name": "EC2"
+        },
+        {
+          "id": "s3",
+          "name": "S3"
+        },
+        {
+          "id": "rds",
+          "name": "RDS"
+        },
+        {
+          "id": "lambda",
+          "name": "Lambda"
+        },
+        {
+          "id": "vpc",
+          "name": "VPC"
+        },
+        {
+          "id": "iam",
+          "name": "IAM"
+        }
       ]
     },
     {
-      "id": "uiUxDesign",
-      "iconName": "PenTool",
+      "id": "CI/CD GitOps",
+      "title": "CI/CD GitOps",
+      "iconName": "GitBranch",
+      "description": "Skilled in implementing continuous integration and continuous deployment pipelines. Experienced with GitOps workflows to automate infrastructure and application delivery with improved reliability and auditability.",
       "technologies": [
-        { "id": "figma", "name": "Figma" },
-        { "id": "responsiveDesign", "name": "Responsive Design" }
+        {
+          "id": "github-actions",
+          "name": "GitHub Actions"
+        },
+        {
+          "id": "argocd",
+          "name": "ArgoCD"
+        },
+        {
+          "id": "jenkins",
+          "name": "Jenkins"
+        },
+        {
+          "id": "gitops",
+          "name": "GitOps"
+        }
       ]
     },
     {
-      "id": "devOps",
-      "iconName": "Network",
+      "id": "Infrastructure As Code",
+      "title": "Infrastructure As Code",
+      "iconName": "Code",
+      "description": "Proficient in defining and provisioning infrastructure using code. Experienced with tools that enable consistent and repeatable infrastructure deployment, reducing manual processes and minimizing human error.",
       "technologies": [
-        { "id": "git", "name": "Git" },
-        { "id": "docker", "name": "Docker" }
+        {
+          "id": "terraform",
+          "name": "Terraform"
+        },
+        {
+          "id": "cloudformation",
+          "name": "AWS CloudFormation"
+        },
+        {
+          "id": "ansible",
+          "name": "Ansible"
+        }
+      ]
+    },
+    {
+      "id": "Monitoring Observability",
+      "title": "Monitoring & Observability",
+      "iconName": "Activity",
+      "description": "Skilled in implementing comprehensive monitoring and observability solutions. Experienced with tools that provide real-time insights into system performance, helping to proactively identify and resolve issues.",
+      "technologies": [
+        {
+          "id": "prometheus",
+          "name": "Prometheus"
+        },
+        {
+          "id": "grafana",
+          "name": "Grafana"
+        },
+        {
+          "id": "elk",
+          "name": "ELK Stack"
+        },
+        {
+          "id": "cloudwatch",
+          "name": "CloudWatch"
+        },
+        {
+          "id": "datadog",
+          "name": "Datadog"
+        }
+      ]
+    },
+    {
+      "id": "Scripting Automation",
+      "title": "Scripting & Automation",
+      "iconName": "Terminal",
+      "description": "Proficient in writing efficient scripts to automate repetitive tasks and streamline workflows. Experienced in developing automation solutions that improve operational efficiency and reduce manual intervention.",
+      "technologies": [
+        {
+          "id": "bash",
+          "name": "Bash"
+        },
+        {
+          "id": "python",
+          "name": "Python"
+        }
+      ]
+    },
+    {
+      "id": "Security Compliance",
+      "title": "Security & Compliance",
+      "iconName": "ShieldCheck",
+      "description": "Committed to implementing security best practices throughout the development lifecycle. Experienced in integrating security measures into CI/CD pipelines and ensuring compliance with industry standards and regulations.",
+      "technologies": [
+        {
+          "id": "devsecops",
+          "name": "DevSecOps"
+        },
+        {
+          "id": "vault",
+          "name": "HashiCorp Vault"
+        },
+        {
+          "id": "owasp",
+          "name": "OWASP Top 10"
+        }
+      ]
+    },
+    {
+      "id": "Methodologies Practices",
+      "title": "Methodologies & Practices",
+      "iconName": "BookOpenCheck",
+      "description": "Well-versed in modern software development methodologies and best practices. Experienced in implementing Agile/Scrum methodologies, trunk-based development, and other practices that enhance team productivity and software quality.",
+      "technologies": [
+        {
+          "id": "agile",
+          "name": "Agile/Scrum"
+        },
+        {
+          "id": "dora",
+          "name": "DORA Metrics"
+        },
+        {
+          "id": "12factor",
+          "name": "12-Factor Apps"
+        },
+        {
+          "id": "gitflow",
+          "name": "GitFlow"
+        },
+        {
+          "id": "trunk",
+          "name": "Trunk-Based Development"
+        }
       ]
     }
   ]

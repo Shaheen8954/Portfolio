@@ -13,79 +13,190 @@ import {
   Database,
   PenTool,
   Network,
+  Container,
+  Cloud,
+  GitBranch,
+  Code,
+  Activity,
+  Terminal,
+  ShieldCheck,
+  BookOpenCheck,
   type LucideIcon,
 } from 'lucide-react';
 import type { IconType } from 'react-icons';
+// Import only the icons that are actually available
 import {
-  SiReact,
-  SiAngular,
-  SiTypescript,
-  SiAstro,
-  SiTailwindcss,
-  SiHtml5,
-  SiCss3,
+  SiReact, 
+  SiTypescript, 
   SiJavascript,
   SiNodedotjs,
-  SiBun,
-  SiDeno,
-  SiExpress,
-  SiNestjs,
-  SiHono,
   SiPython,
-  SiPostgresql,
-  SiMysql,
-  SiMongodb,
-  SiSqlite,
-  SiPrisma,
-  SiDrizzle,
-  SiFigma,
   SiDocker,
   SiKubernetes,
   SiGit,
-  SiAmazon,
+  SiGithub,
+  SiGitlab,
+  SiTerraform,
+  SiAnsible,
+  SiPrometheus,
+  SiGrafana,
+  SiElastic,
+  SiVault,
+  SiHelm,
+  SiArgo,
+  SiGnubash,
+  SiGo,
+  SiJenkins,
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiSqlite,
+  SiNestjs,
+  SiExpress,
+  SiPrisma,
+  SiAmazonec2,
+  SiAmazons3,
+  SiAmazondynamodb,
+  SiAmazonrds,
+  SiAmazonecs,
+  SiAwslambda,
+  SiAmazoncloudwatch,
+  SiAmazonroute53,
+  SiAmazonapigateway,
+  SiGithubactions,
+  SiConsul,
+  SiNomad,
+  SiVagrant,
+  SiNginx,
+  SiApache,
+  SiLinux,
+  SiUbuntu,
+  SiDebian,
+  SiCentos,
+  SiRedhat,
+  SiServerless,
+  SiDatadog,
+  SiNewrelic,
+  SiSentry
 } from 'react-icons/si';
 
+
+
+// AWS and Cloud Icons from react-icons/si
+import { 
+  SiAmazonec2 as SiEc2,
+  SiAmazons3 as SiS3,
+  SiAmazonrds as SiRds,
+  SiAwslambda as SiLambda,
+  SiAmazoncloudwatch as SiCloudWatch,
+  SiAmazonroute53 as SiRoute53,
+  SiAmazonapigateway as SiApiGateway,
+  SiAmazonecs as SiEcs,
+  SiAmazondynamodb as SiDynamoDB
+} from 'react-icons/si';
+
+// Fallback icons
+const SiHcl = SiTerraform;
+const SiPulumi = SiTerraform;
+const SiGithubActions = SiGithub;
+const SiAwsEcs = SiAmazonecs;
+const SiAwsCloudwatch = SiAmazoncloudwatch;
+const SiAwsRoute53 = SiAmazonroute53;
+const SiAwsApigateway = SiAmazonapigateway;
+
 // Define the mapping from iconName to Lucide icon component
-// Mapping for Lucide icons (general skill category)
 const iconComponents: Record<string, LucideIcon> = {
   MonitorSmartphone,
   ServerCog,
   Database,
   PenTool,
   Network,
+  Container,
+  Cloud,
+  GitBranch,
+  Code,
+  Activity,
+  Terminal,
+  ShieldCheck,
+  BookOpenCheck,
+  Windows: ServerCog, // Fallback for Windows
 };
 
-// Mapping for react-icons (specific technologies)
-const techIconComponents: Record<string, IconType> = {
+// Mapping for technology icons
+const techIconComponents: Record<string, any> = {
+  // Programming Languages
   react: SiReact,
-  angular: SiAngular,
   typescript: SiTypescript,
-  astro: SiAstro,
-  tailwindcss: SiTailwindcss,
-  html5: SiHtml5,
-  css3: SiCss3,
   javascript: SiJavascript,
   nodejs: SiNodedotjs,
-  bun: SiBun,
-  deno: SiDeno,
-  express: SiExpress,
-  nestjs: SiNestjs,
-  hono: SiHono,
   python: SiPython,
+  go: SiGo,
+  bash: SiGnubash,
+  
+  // Databases
   postgresql: SiPostgresql,
   mysql: SiMysql,
   mongodb: SiMongodb,
   sqlite: SiSqlite,
+  dynamodb: SiDynamoDB,
+  
+  // Backend & ORM
   prisma: SiPrisma,
-  drizzleorm: SiDrizzle,
-  figma: SiFigma,
+  nestjs: SiNestjs,
+  express: SiExpress,
+  
+  // Containers & Orchestration
   docker: SiDocker,
+  'docker-compose': SiDocker,
   kubernetes: SiKubernetes,
+  helm: SiHelm,
+  
+  // Version Control & CI/CD
   git: SiGit,
-  amazonservices: SiAmazon,
+  github: SiGithub,
+  'github-actions': SiGithubActions || SiGithub,
+  gitlab: SiGitlab,
+  'gitlab-ci': SiGitlab,
+  jenkins: SiJenkins,
+  argocd: SiArgo,
+  gitops: SiGit,
+  
+  // Infrastructure as Code
+  terraform: SiTerraform,
+  pulumi: SiPulumi,
+  ansible: SiAnsible,
+  
+  // Monitoring & Observability
+  prometheus: SiPrometheus,
+  grafana: SiGrafana,
+  datadog: SiDatadog,
+  newrelic: SiNewrelic,
+  sentry: SiSentry,
+  
+  // Security
+  vault: SiVault,
+  'hashicorp-vault': SiVault,
+  
+
+  
+  // AWS Services
+  ec2: SiEc2,
+  s3: SiS3,
+  rds: SiRds,
+  lambda: SiLambda,
+  route53: SiRoute53,
+  apigateway: SiApiGateway,
+  cloudwatch: SiCloudWatch,
+  ecs: SiEcs,
+
+  
+  
+  // Workflow
+  gitflow: SiGit,
+  'trunk-based-development': SiGit,
 };
 
-import type { Technology } from '@/data/skills'; // Import the Technology type
+import type { Technology } from '../types/skills'; // Import the Technology type
 
 export type Props = {
   title: string;
@@ -141,12 +252,24 @@ const IconComponent = iconComponents[iconName];
       <CardFooter className="pt-3 pb-4 flex flex-wrap gap-x-3 gap-y-2 justify-start items-center">
         {technologies.map((tech) => {
           const TechIcon = techIconComponents[tech.id.toLowerCase()];
-          return TechIcon ? (
+          if (!TechIcon) return null;
+          
+          // Special handling for Devicon components which use a different prop for className
+          const isDevicon = typeof TechIcon === 'function' && 
+                          (TechIcon.displayName?.includes('Original') || 
+                           TechIcon.displayName?.includes('Plain') ||
+                           TechIcon.displayName?.includes('Line'));
+          
+          return isDevicon ? (
+            <div class="w-5 h-5 flex items-center justify-center" title={tech.name}>
+              <TechIcon className="w-full h-full" />
+            </div>
+          ) : (
             <TechIcon
               className="size-5 text-muted-foreground hover:text-primary transition-colors"
               title={tech.name}
             />
-          ) : null;
+          );
         })}
       </CardFooter>
     )
