@@ -52,7 +52,7 @@ Etcd is the distributed key value database. It stores all the state about the cl
 3. #### Scheduler: 
 Scheduler is responsible to select the best fit node to create pod based on tent and tolration, affinity and nodeselectore updates the pod spec with node. If pod failed scheduler will recreate another pod. it always check the pod.
 
-4.#### Controller Manager:
+4. #### Controller Manager:
 
 Runs controller process like-
 
@@ -61,11 +61,11 @@ Runs controller process like-
 - Endpoints controller
 - and service account
 
-5.#### Cloud Controller Manager:
+5. #### Cloud Controller Manager:
 
 It is responsible for cloud related services, manage pv, pvc, loadbalancer etc.
 
-  #### Worker Node
+#### Worker Node
 
 Worker node have three components
 
