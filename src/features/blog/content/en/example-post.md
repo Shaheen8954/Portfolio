@@ -13,17 +13,13 @@ featured: true
 relatedPosts: []
 ---
 
-import InfoAlert from '@/features/blog/components/InfoAlert.astro';
-
 ## Introduction
 
 Welcome to this example post! The goal is to show you how to organize your content.
 
-You can use standard Markdown here, as well as Astro or React components if you wish.
+You can use standard Markdown here to write your blog posts.
 
-<InfoAlert title="Important Note">
-  This is an imported Astro component. You can create your own!
-</InfoAlert>
+> **Important Note:** This is a standard Markdown blockquote. All your blog posts should now use pure Markdown format (.md) instead of MDX.
 
 ## Main Content
 
