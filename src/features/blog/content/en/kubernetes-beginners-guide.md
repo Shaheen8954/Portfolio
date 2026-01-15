@@ -86,6 +86,21 @@ Everytime a pod is created the ip table is handled by kube-proxy.
 
 Pod is the smallest deployable unit in kubernetes, it contains one or more containers that are deployed together on the same node and share and share the same network storage.
 
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+  labels:
+    purpose: demonstrate-args
+spec:
+  containers:
+  - name: example-container
+    image: ubuntu
+    command: ["/bin/echo", "Hello"]  
+    args: ["Welcome", "to", "kubernetes", "class"]
+```
+
 ### Kubernetes Objects
 
 #### Deployments
@@ -94,11 +109,49 @@ Deployment is an object of kubernetes that helps to deploy, manage, and rollback
 
 It helps to describe the desired state for pods.
 
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
 #### Replicaset: 
 Replicaset is a object in kubernetes that ensures a specified number of identical pod are always running. If pod deleted or manually or by accident it will recreate them, also distribute the trafic over the multiple replicas.
 
 #### Statefullset:
  A statefulset is a kubernetes controller used to manage stateful applications. those applications need to stable identity,stable storage, ordered the deployment.
+
+ #### ConfigMap
+ ConfigMap is an object that store configration data about the application.It stores non-credentianls data in key-value pairs.
+
+
+ ```
+ apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: example-configmap-folded
+data:
+ mymessage: >
+   Hello, this is a folded
+   multi-line message. 
+```
+  
 
 #### Networking 
 
@@ -132,11 +185,68 @@ namespace is isolated group to work application without conflict in cluster.
 
 #### Initcontainers:
 
-Init containers are used to download files or other utilities. These containers runs before main container. these containers runs and die. These containers can be multiple.
+Init containers are used to download files, configuration or other utilities. These containers runs before main container also in sequence. these containers runs and die. These containers can be multiple.
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bootcamp-pod
+spec:
+  volumes:
+  - name: shared-data
+    emptyDir: {}
+  initContainers:
+  - name: bootcamp-init
+    image: busybox
+    command: ['sh', '-c', 'wget -O /usr/share/data/index.html http://kubesimplify.com']
+    volumeMounts:
+    - name: shared-data
+      mountPath: /usr/share/data
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: shared-data
+      mountPath: /usr/share/nginx/html
+```
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-demo-2
+spec:
+  initContainers:
+  - name: check-db-service
+    image: busybox
+    command: ['sh', '-c', 'until nslookup db.default.svc.cluster.local; do echo waiting for db service; sleep 2; done;']
+  - name: check-myservice
+    image: busybox
+    command: ['sh', '-c', 'until nslookup myservice.default.svc.cluster.local; do echo waiting for db service; sleep 2; done;']
+  containers:
+  - name: main-container
+    image: busybox
+    command: ['sleep', '3600']
+```
 
 #### Sidecar container: 
 
-Sidecar containers are use to debug, checking pods health. These containers run together main container. 
+Sidecar containers are use to debug, checking pods health. These containers run together main container.Sidecar container also help to communicate between pod to pod. 
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sidecar-pod
+spec:
+  containers:
+  - name: main-container
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: sidecar-container
+    image: busybox
+    command: ['sh', '-c', 'sleep 3600']
+```
 
 #### Best Practices:
 
