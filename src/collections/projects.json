@@ -3,44 +3,73 @@
     {
       "id": "easyshop",
       "slug": "easyshop",
-      "imageUrlPath": "/src/assets/easyshop.png",
+      "imageUrlPath": "/src/assets/projects/easyshop.png",
       "projectUrl": "",
       "codeUrl": "https://github.com/Shaheen8954/easyshop-hack",
       "tags": [],
       "category": "E-commerce Platform",
       "date": "2025-01-01",
       "galleryImages": [
-        { "id": "screenshot1", "srcPath": "/src/assets/easyshop.png" }
+        {
+          "id": "screenshot1",
+          "srcPath": "/src/assets/projects/easyshop.png"
+        }
       ],
       "keyFeatures": [
-        { "id": "responsiveDesign" },
-        { "id": "contentManagement" }
+        {
+          "id": "responsiveDesign"
+        },
+        {
+          "id": "contentManagement"
+        }
       ],
       "technologiesUsed": [
-        { "id": "docker", "name": "Docker" },
-        { "id": "kubernetes", "name": "Kubernetes" },
-        { "id": "terraform", "name": "Terraform" }
+        {
+          "id": "docker",
+          "name": "Docker"
+        },
+        {
+          "id": "kubernetes",
+          "name": "Kubernetes"
+        },
+        {
+          "id": "terraform",
+          "name": "Terraform"
+        }
       ]
     },
     {
       "id": "chattingo",
       "slug": "chattingo",
-      "imageUrlPath": "/src/assets/Chattingo.jpg",
+      "imageUrlPath": "/src/assets/projects/chattingo.jpg",
       "projectUrl": "",
       "codeUrl": "https://github.com/Shaheen8954/chattingo/tree/feature",
       "tags": [],
       "category": "Chat Application",
       "date": "2025-01-15",
       "galleryImages": [
-        { "id": "screenshot1", "srcPath": "/src/assets/Chattingo.jpg" }
+        {
+          "id": "screenshot1",
+          "srcPath": "/src/assets/projects/chattingo.jpg"
+        }
       ],
       "keyFeatures": [
-        { "id": "realtimeMessaging" },
-        { "id": "authentication" }
+        {
+          "id": "realtimeMessaging"
+        },
+        {
+          "id": "authentication"
+        }
       ],
       "technologiesUsed": [
-        { "id": "docker", "name": "Docker" },
-        { "id": "nodejs", "name": "Node.js" }
+        {
+          "id": "docker",
+          "name": "Docker"
+        },
+        {
+          "id": "nodejs",
+          "name": "Node.js"
+        }
       ]
     }
   ]
