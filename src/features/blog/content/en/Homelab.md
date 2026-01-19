@@ -5,14 +5,13 @@ description: "A comprehensive introduction to Kubernetes, its components, and co
 pubDate: 2026-01-19
 updatedDate: 2026-01-19
 heroImage:
-  url: "/images/homelab.png"
+  url: "/images/blog/homelab.png"
   alt: "Kubernetes Homelab Setup"
 tags:
   - "homelab"
   - "kubernetes"
   - "microk8s"
   - "cloudflare"
-difficulty: "beginner"
 relatedPosts: []
 isDraft: false
 ---
@@ -34,6 +33,7 @@ You will learn:
 - This blog is written in simple English, so beginners can follow easily.
 
 ## 2) What is a Homelab?
+
 A homelab is a self-contained IT environment that you design and control. It usually includes basic infrastructure like compute, storage, and networking, along with a hypervisor or virtualization layer (container). Some setups are modest and run on a single machine, while others resemble mini datacenters with multiple nodes and a shared storage such as SAN or NAS.
 
 In simple terms: A homelab is your own small “data center at home”.
@@ -60,10 +60,13 @@ It is a set of servers or PCs where you practice:
 - To gain confidence for interviews
 
 ## 3) Why I chose Ubuntu for my on-prem cluster
+
 ### What is Ubuntu?
+
 Ubuntu is a free and open-source operating system based on the Linux kernel, developed and maintained by Canonical Ltd. Since its initial release in 2004, Ubuntu has grown rapidly in popularity due to its ease of use, stability, and vast ecosystem of applications and tools.
 
 ### Why Ubuntu is popular?
+
 Ubuntu is a popular Linux operating system.
 It is:
 
@@ -80,6 +83,7 @@ Widely used in cloud and production servers
 MicroK8s is maintained by Canonical (Ubuntu company), and it works best on Ubuntu. MicroK8s installs using snap, and Ubuntu supports snap by default.
 
 ### 4) Install Ubuntu OS (Step-by-step)
+
 #### Minimum Requirements
 
 - CPU: 2 cores (4 cores better)
@@ -92,7 +96,8 @@ MicroK8s is maintained by Canonical (Ubuntu company), and it works best on Ubunt
 
 ### After Ubuntu installation (Important setup)
 
-#### Run these commands after installing Ubuntu:
+#### Run these commands after installing Ubuntu
+
 ```
 sudo apt update
 sudo apt upgrade -y
@@ -100,12 +105,13 @@ sudo reboot
 ```
 
 #### Set hostname (optional but good)
+
 ```
 sudo hostnamectl set-hostname homelab-master
 ```
 
-
 ### 5) What is MicroK8s?
+
 #### MicroK8s in simple words
 
 MicroK8s is a lightweight Kubernetes distribution.
@@ -132,11 +138,12 @@ Quick setup for learners
 Great for homelab practice
 
 ### 6) Install MicroK8s on Ubuntu
+
 #### Step 1: Install MicroK8s
+
 ```
 sudo snap install microk8s --classic
 ```
-
 
 #### Step 2: Add your user to microk8s group
 
@@ -149,6 +156,7 @@ newgrp microk8s
 ```
 
 #### Step 3: Check MicroK8s status
+
 ```
 microk8s status --wait-ready
 ```
@@ -158,31 +166,38 @@ microk8s status --wait-ready
 MicroK8s has its own kubectl:
 
 To see your node as "Ready":
+
 ```
 microk8s kubectl get nodes
 ```
 
 To get information about cluster:
+
 ```
 microk8s kubect cluster-info
 ```
 
 To get information about all pods:
+
 ```
 microk8s kubect get pod
 microk8s kubect get pod --all-namespaces
 ```
+
 To install kubectl:
+
 ```bash
 sudo snap install kubectl --classic
 ```
 
-### Enable useful add-ons like for service descovery (CoreDNS) and web UI (Kubernetes Dashboard):
+### Enable useful add-ons like for service descovery (CoreDNS) and web UI (Kubernetes Dashboard)
+
 ```
 microk8s enable dns
 ```
 
 Check status:
+
 ```
 microk8s status
 ```
@@ -196,6 +211,7 @@ Cloudflare is a cloud computing company that provides a content delivery network
 Tunnel is a feature of Cloudflare that allows you to create a secure connection between your home lab and the internet without exposing your home lab to the internet.
 
 ## 8) Why I chose Cloudflare for On-Prem Kubernetes
+
 ### Problem in on-prem environment
 
 When we run Kubernetes at home:
@@ -208,7 +224,7 @@ When we run Kubernetes at home:
 
 - Security risk is high if we expose apps directly
 
-### Solution:
+### Solution
 
 Use Cloudflare Zero Trust Tunnel.
 
@@ -216,6 +232,7 @@ Cloudflare Tunnel creates an outbound-only secure connection from our homelab to
 So no direct inbound access is needed.
 
 ### 9) What is Cloudflare Zero Trust Tunnel?
+
 Simple meaning
 
 A Zero Trust Tunnel means:
@@ -235,6 +252,7 @@ Cloudflare Tunnel:
 - works even if you don’t have a public IP
 
 ### 10) Setup Cloudflare Zero Trust Tunnel (Step-by-step)
+
 #### Prerequisites
 
 You need:
@@ -263,47 +281,50 @@ You need:
 
 (Now the question is how it will connect to our homelab? For that we need to install cloudflared cli and )
 
-
 ## Step 2: Install cloudflared on Ubuntu
 
 Cloudflare provides install methods, but simplest is to run tunnel using the token command provided by dashboard.
 
-
-
 Install cloudflalred cli:
+
 ```
 sudo snap install cloudflared
 ```
 
 Authenticate:
+
 ```
 cloudflared tunnel login
 ```
 
 Create tunnel:
+
 ```
 cloudflared create tunnel home-lab-tunnel
 ```
 
 Create token to cloudflare tunnel in the terminal ( also creating sercret in emprative way):
+
 ```
 kubectl -n cloudflare create secret generic cloudflared-token \  --from-literal=TUNNEL_TOKEN="<YOUR_TUNNEL_TOKEN>"
 ```
 
 (This creates a secure tunnel from your server to Cloudflare.)
 
-
 #### cloudflare-namespace.yaml
+
 ```
 apiVersion: v1
 kind: Namespace
 metadata:
   name: cloudflare
 ```
+
 #### cloudflare-config.yaml
 
 - (Template file - Replace TUNNEL_ID_PLACEHOLDER with your actual tunnel ID)
 - (You can use: sed 's/TUNNEL_ID_PLACEHOLDER/your-tunnel-id/g' cloudflared-config-template.yaml > cloudflared-config.yaml)
+
 ```
 apiVersion: v1
 kind: ConfigMap
@@ -331,8 +352,9 @@ data:
       # Catch-all rule (must be last)
       - service: http_status:404
 ```
-    
+
 #### Cloudflared-deploy.yaml
+
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -363,6 +385,7 @@ spec:
                 name: cloudflared-token
                 key: TUNNEL_TOKEN
 ```
+
 ```
 microk8s kubectl apply -f cloudflare-namespace.yaml
 
@@ -378,6 +401,7 @@ This deploys a Deployment/Pod that runs cloudflared in your MicroK8s cluster and
 After tunnel is running:
 
 Check tunnel status
+
 ```
 cloudflared tunnel list
 ```
