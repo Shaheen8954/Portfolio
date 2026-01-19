@@ -5,14 +5,14 @@ description: "A comprehensive introduction to Kubernetes, its components, and co
 pubDate: 2026-01-19
 updatedDate: 2026-01-19
 heroImage:
-  url: ../../../../assets/homelab.png
-  alt: Homelab Logo
+  url: "/images/homelab.png"
+  alt: "Homelab Logo"
 tags:
-  - homelab
-  - kubernetes
-  - microk8s
-  - cloudflare
-difficulty: beginner
+  - "homelab"
+  - "kubernetes"
+  - "microk8s"
+  - "cloudflare"
+difficulty: "beginner"
 relatedPosts: []
 isDraft: false
 ---
