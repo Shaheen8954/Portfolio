@@ -6,7 +6,7 @@ pubDate: 2026-01-19
 updatedDate: 2026-01-19
 heroImage:
   url: "/images/homelab.png"
-  alt: "Homelab Logo"
+  alt: "Kubernetes Homelab Setup"
 tags:
   - "homelab"
   - "kubernetes"
