@@ -406,4 +406,6 @@ Check tunnel status
 cloudflared tunnel list
 ```
 
-Now your tunnel is running and forwarding traffic from Cloudflare to your services in the cluster, you can integrate your application with it.
+Now your tunnel is running and you need to configure tunnel on the cloudflare UI
+
+ forwarding traffic from Cloudflare to your services in the cluster, you can integrate your application with it.
